@@ -1,0 +1,849 @@
+@prefix : <http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology> .
+
+<http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology> rdf:type owl:Ontology ;
+                                                                     rdfs:comment "Submitted by Manjushri Dhole" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#hasActor
+:hasActor rdf:type owl:ObjectProperty ;
+          owl:inverseOf :isActorOf ;
+          rdf:type owl:FunctionalProperty ;
+          rdfs:domain :Actor ;
+          rdfs:range :Person .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#hasActress
+:hasActress rdf:type owl:ObjectProperty ;
+            owl:inverseOf :isActressOf ;
+            rdf:type owl:FunctionalProperty ;
+            rdfs:domain :Actress ;
+            rdfs:range :Person .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#hasCertification
+:hasCertification rdf:type owl:ObjectProperty ;
+                  owl:inverseOf :isCertfied ;
+                  rdf:type owl:FunctionalProperty ;
+                  rdfs:domain :Movies ;
+                  rdfs:range :Certification .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#hasDirector
+:hasDirector rdf:type owl:ObjectProperty ;
+             owl:inverseOf :isDirectorOf ;
+             rdf:type owl:FunctionalProperty ;
+             rdfs:domain :Person ;
+             rdfs:range :Director .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#hasLanguage
+:hasLanguage rdf:type owl:ObjectProperty ;
+             owl:inverseOf :isLanguageOf ;
+             rdf:type owl:FunctionalProperty ;
+             rdfs:domain :Movies ;
+             rdfs:range :Place .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#hasProducer
+:hasProducer rdf:type owl:ObjectProperty ;
+             owl:inverseOf :isProducerOf ;
+             rdf:type owl:FunctionalProperty ;
+             rdfs:domain :Person ;
+             rdfs:range :Producer .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#hasType
+:hasType rdf:type owl:ObjectProperty ,
+                  owl:FunctionalProperty ;
+         rdfs:range :MovieType .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#isActorOf
+:isActorOf rdf:type owl:ObjectProperty ,
+                    owl:InverseFunctionalProperty ;
+           rdfs:domain :Person ;
+           rdfs:range :Actor .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#isActressOf
+:isActressOf rdf:type owl:ObjectProperty ,
+                      owl:InverseFunctionalProperty ;
+             rdfs:domain :Actress ;
+             rdfs:range :Person .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#isCertfied
+:isCertfied rdf:type owl:ObjectProperty ,
+                     owl:InverseFunctionalProperty ;
+            rdfs:domain :Certification ;
+            rdfs:range :Movies .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#isDirectorOf
+:isDirectorOf rdf:type owl:ObjectProperty ,
+                       owl:InverseFunctionalProperty ;
+              rdfs:domain :Director ;
+              rdfs:range :Person .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#isLanguageOf
+:isLanguageOf rdf:type owl:ObjectProperty ,
+                       owl:InverseFunctionalProperty ;
+              rdfs:domain :Place ;
+              rdfs:range :Movies .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#isProducerOf
+:isProducerOf rdf:type owl:ObjectProperty ,
+                       owl:InverseFunctionalProperty ;
+              rdfs:domain :Producer ;
+              rdfs:range :Person .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#DOB
+:DOB rdf:type owl:DatatypeProperty ;
+     rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#Gender
+:Gender rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#Language
+:Language rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#Name
+:Name rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#Rating
+:Rating rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#ReleaseYear
+:ReleaseYear rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#A
+:A rdf:type owl:Class ;
+   owl:equivalentClass [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasCertification ;
+                         owl:allValuesFrom :A
+                       ] ;
+   rdfs:subClassOf :Certification .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#Action
+:Action rdf:type owl:Class ;
+        rdfs:subClassOf :Genre ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasActor ;
+                          owl:someValuesFrom :Actor
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasActress ;
+                          owl:someValuesFrom :Actress
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasDirector ;
+                          owl:someValuesFrom :Director
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasProducer ;
+                          owl:someValuesFrom :Producer
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasType ;
+                          owl:someValuesFrom :ParentalGuidanceRequired
+                        ] .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#Actor
+:Actor rdf:type owl:Class ;
+       rdfs:subClassOf :Person .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#Actress
+:Actress rdf:type owl:Class ;
+         rdfs:subClassOf :Person .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#Animation
+:Animation rdf:type owl:Class ;
+           rdfs:subClassOf :Genre ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasActor ;
+                             owl:someValuesFrom :Actor
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasActress ;
+                             owl:someValuesFrom :Actress
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasDirector ;
+                             owl:someValuesFrom :Director
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasProducer ;
+                             owl:someValuesFrom :Producer
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasType ;
+                             owl:someValuesFrom :Unrestricted
+                           ] .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#Certification
+:Certification rdf:type owl:Class ;
+               rdfs:subClassOf :Movies .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#Comedy
+:Comedy rdf:type owl:Class ;
+        rdfs:subClassOf :Genre ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasActor ;
+                          owl:someValuesFrom :Actor
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasActress ;
+                          owl:someValuesFrom :Actress
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasDirector ;
+                          owl:someValuesFrom :Director
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasProducer ;
+                          owl:someValuesFrom :Producer
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasType ;
+                          owl:someValuesFrom :Unrestricted
+                        ] .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#Director
+:Director rdf:type owl:Class ;
+          rdfs:subClassOf :Person .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#FrenchMovies
+:FrenchMovies rdf:type owl:Class ;
+              rdfs:subClassOf :Place .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#Genre
+:Genre rdf:type owl:Class ;
+       rdfs:subClassOf :Movies .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#Hollywood
+:Hollywood rdf:type owl:Class ;
+           rdfs:subClassOf :Place .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#MovieType
+:MovieType rdf:type owl:Class ;
+           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasCertification ;
+                                 owl:someValuesFrom [ rdf:type owl:Class ;
+                                                      owl:unionOf ( :A
+                                                                    :S
+                                                                    :U
+                                                                    <http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#A/U>
+                                                                  )
+                                                    ]
+                               ] ;
+           rdfs:subClassOf :ValuePartition .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#Movies
+:Movies rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#Musical
+:Musical rdf:type owl:Class ;
+         rdfs:subClassOf :Genre ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasActor ;
+                           owl:someValuesFrom :Actor
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasActress ;
+                           owl:someValuesFrom :Actress
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasDirector ;
+                           owl:someValuesFrom :Director
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasProducer ;
+                           owl:someValuesFrom :Producer
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasType ;
+                           owl:someValuesFrom :Unrestricted
+                         ] .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#ParentalGuidanceRequired
+:ParentalGuidanceRequired rdf:type owl:Class ;
+                          owl:equivalentClass [ owl:intersectionOf ( :MovieType
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :hasCertification ;
+                                                                       owl:allValuesFrom <http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#A/U>
+                                                                     ]
+                                                                   ) ;
+                                                rdf:type owl:Class
+                                              ] ;
+                          rdfs:subClassOf :MovieType .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#Person
+:Person rdf:type owl:Class ;
+        rdfs:subClassOf :Movies .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#Place
+:Place rdf:type owl:Class ;
+       rdfs:subClassOf :Movies .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#Producer
+:Producer rdf:type owl:Class ;
+          rdfs:subClassOf :Person .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#RestrictedToAdults
+:RestrictedToAdults rdf:type owl:Class ;
+                    owl:equivalentClass [ owl:intersectionOf ( :MovieType
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :hasCertification ;
+                                                                 owl:allValuesFrom :A
+                                                               ]
+                                                             ) ;
+                                          rdf:type owl:Class
+                                        ] ;
+                    rdfs:subClassOf :MovieType .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#RestrictedToSpecialClass
+:RestrictedToSpecialClass rdf:type owl:Class ;
+                          owl:equivalentClass [ owl:intersectionOf ( :MovieType
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :hasCertification ;
+                                                                       owl:allValuesFrom :S
+                                                                     ]
+                                                                   ) ;
+                                                rdf:type owl:Class
+                                              ] ;
+                          rdfs:subClassOf :MovieType .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#Romance
+:Romance rdf:type owl:Class ;
+         rdfs:subClassOf :Genre ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasActor ;
+                           owl:someValuesFrom :Actor
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasActress ;
+                           owl:someValuesFrom :Actress
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasDirector ;
+                           owl:someValuesFrom :Director
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasProducer ;
+                           owl:someValuesFrom :Producer
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasType ;
+                           owl:someValuesFrom :RestrictedToAdults
+                         ] .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#S
+:S rdf:type owl:Class ;
+   owl:equivalentClass [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasCertification ;
+                         owl:allValuesFrom :S
+                       ] ;
+   rdfs:subClassOf :Certification .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#Social
+:Social rdf:type owl:Class ;
+        rdfs:subClassOf :Genre ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasActor ;
+                          owl:someValuesFrom :Actor
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasActress ;
+                          owl:someValuesFrom :Actress
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasDirector ;
+                          owl:someValuesFrom :Director
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasProducer ;
+                          owl:someValuesFrom :Producer
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasType ;
+                          owl:someValuesFrom :RestrictedToSpecialClass
+                        ] .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#SpanishMovies
+:SpanishMovies rdf:type owl:Class ;
+               rdfs:subClassOf :Place .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#U
+:U rdf:type owl:Class ;
+   owl:equivalentClass [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasCertification ;
+                         owl:allValuesFrom :U
+                       ] ;
+   rdfs:subClassOf :Certification .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#Unrestricted
+:Unrestricted rdf:type owl:Class ;
+              owl:equivalentClass [ owl:intersectionOf ( :MovieType
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty :hasCertification ;
+                                                           owl:allValuesFrom :U
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ;
+              rdfs:subClassOf :MovieType .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#ValuePartition
+:ValuePartition rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#A/U
+<http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#A/U> rdf:type owl:Class ;
+                                                                        owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                                              owl:onProperty :hasCertification ;
+                                                                                              owl:allValuesFrom <http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#A/U>
+                                                                                            ] ;
+                                                                        rdfs:subClassOf :Certification .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#AWalkToRemember
+:AWalkToRemember rdf:type owl:NamedIndividual ,
+                          :Romance ;
+                 :hasActor :ShaneWest ;
+                 :hasActress :MandyMoore ;
+                 :hasDirector :AdamShankman ;
+                 :hasLanguage :English ;
+                 :hasProducer :DeniseDiNovi ;
+                 :Rating "5.0"^^xsd:float ;
+                 :ReleaseYear "2002"^^xsd:int .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#AdamShankman
+:AdamShankman rdf:type owl:NamedIndividual ,
+                       :Director ;
+              :isDirectorOf :AWalkToRemember ;
+              :DOB "Nov 27 1964" ;
+              :Gender "Male" ;
+              :Name "Adam Shankman" .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#Andrea_Calderwood
+:Andrea_Calderwood rdf:type owl:NamedIndividual ,
+                            :Producer ;
+                   :isProducerOf :TheBoyWhoHarnessedWind ;
+                   :Gender "Female" ;
+                   :Name "Andrea Calderwood" .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#BrianDePalma
+:BrianDePalma rdf:type owl:NamedIndividual ,
+                       :Director ;
+              :isDirectorOf :MissionImpossible ;
+              :DOB "Sep 11 1940" ;
+              :Gender "Male" ;
+              :Name "Brian Di Palma" .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#BridesMaid
+:BridesMaid rdf:type owl:NamedIndividual ,
+                     :Comedy ;
+            :hasActress :KristenWiig ;
+            :hasDirector :PaulFeig ;
+            :hasLanguage :French ;
+            :hasProducer :JuddApatow ;
+            :Rating "3.0"^^xsd:float ;
+            :ReleaseYear "2011"^^xsd:int .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#ChiwetelEjiofor
+:ChiwetelEjiofor rdf:type owl:NamedIndividual ,
+                          :Actor ,
+                          :Director ;
+                 :isActorOf :TheBoyWhoHarnessedWind ;
+                 :isDirectorOf :TheBoyWhoHarnessedWind ;
+                 :DOB "July 10 1977" ;
+                 :Gender "Male" ;
+                 :Name "Chiwetel Ejiofor" .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#ChristopherPlummer
+:ChristopherPlummer rdf:type owl:NamedIndividual ,
+                             :Actor ;
+                    :isActorOf :Up ;
+                    :DOB "Dec 13 1929" ;
+                    :Gender "Male" ;
+                    :Name "Christopher Plummer" .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#Cindrella
+:Cindrella rdf:type owl:NamedIndividual ,
+                    :Romance ;
+           :hasActor :RichardMadden ;
+           :hasActress :LilyJames ;
+           :hasDirector :Kenneth_Branagh ;
+           :hasLanguage :Spanish ;
+           :hasProducer :Disney ;
+           :Rating "3.5"^^xsd:float ;
+           :ReleaseYear "2015"^^xsd:int .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#DamienChazelle
+:DamienChazelle rdf:type owl:NamedIndividual ,
+                         :Director ;
+                :isDirectorOf :LALaLand ;
+                :DOB "Jan 19 1985" ;
+                :Gender "Male" ;
+                :Name "Damien Chazelle" .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#DeniseDiNovi
+:DeniseDiNovi rdf:type owl:NamedIndividual ,
+                       :Producer ;
+              :isProducerOf :AWalkToRemember ;
+              :DOB "March 21 1956" ;
+              :Gender "Female" ;
+              :Name "Denise Di Novi" .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#Disney
+:Disney rdf:type owl:NamedIndividual ;
+        :isProducerOf :Cindrella ;
+        :Name "Disney" .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#EmmaStone
+:EmmaStone rdf:type owl:NamedIndividual ,
+                    :Actress ;
+           :isActressOf :LALaLand ;
+           :DOB "Nov 6 1988" ;
+           :Gender "Female" ;
+           :Name "Emma Stone" .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#EmmanuelleBert
+:EmmanuelleBert rdf:type owl:NamedIndividual ,
+                         :Actress ;
+                :isActressOf :MissionImpossible ;
+                :DOB "Aug 14 1963" ;
+                :Gender "Female" ;
+                :Name "Emmanuelle Bert" .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#English
+:English rdf:type owl:NamedIndividual ,
+                  :Hollywood ;
+         :hasLanguage :English .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#FredBerger
+:FredBerger rdf:type owl:NamedIndividual ,
+                     :Producer ;
+            :isProducerOf :LALaLand ;
+            :Gender "Male" ,
+                    "May 10 1981" ;
+            :Name "Fred Berger" .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#French
+:French rdf:type owl:NamedIndividual ,
+                 :FrenchMovies ;
+        :hasLanguage :French .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#HighSchoolMusical
+:HighSchoolMusical rdf:type owl:NamedIndividual ,
+                            :Musical ;
+                   :hasActor :ZacEfron ;
+                   :hasActress :VanessaHudgens ;
+                   :hasDirector :KennyOrtega ;
+                   :hasLanguage :English ;
+                   :hasProducer :Disney ;
+                   :Rating "5.0"^^xsd:float ;
+                   :ReleaseYear "2006"^^xsd:int .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#JuddApatow
+:JuddApatow rdf:type owl:NamedIndividual ,
+                     :Producer ;
+            :isProducerOf :BridesMaid ;
+            :DOB "Dec 6 1967" ;
+            :Gender "Male" ;
+            :Name "Judd Apatow" .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#Kenneth_Branagh
+:Kenneth_Branagh rdf:type owl:NamedIndividual ,
+                          :Director ;
+                 :isDirectorOf :Cindrella ;
+                 :DOB "Dec 10 1960" ;
+                 :Gender "Male" ;
+                 :Name "Kenneth Branagh" .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#KennyOrtega
+:KennyOrtega rdf:type owl:NamedIndividual ,
+                      :Director ;
+             :isDirectorOf :HighSchoolMusical ;
+             :DOB "Apr 18 1950" ;
+             :Gender "Male" ;
+             :Name "Kenny Ortega" .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#KristenWiig
+:KristenWiig rdf:type owl:NamedIndividual ,
+                      :Actress ;
+             :isActressOf :BridesMaid ;
+             :DOB "Aug 22 1973" ;
+             :Gender "Female" ;
+             :Name "Kristen Wiig" .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#LALaLand
+:LALaLand rdf:type owl:NamedIndividual ,
+                   :Musical ;
+          :hasActor :RyanGosling ;
+          :hasActress :EmmaStone ;
+          :hasDirector :DamienChazelle ;
+          :hasLanguage :French ;
+          :hasProducer :FredBerger ;
+          :Rating "4.0"^^xsd:float ;
+          :ReleaseYear "2016"^^xsd:int .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#LilyJames
+:LilyJames rdf:type owl:NamedIndividual ,
+                    :Actress ;
+           :isActressOf :Cindrella ;
+           :DOB "Apr 5 1989" ;
+           :Gender "Female" ;
+           :Name "Lily James" .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#MandyMoore
+:MandyMoore rdf:type owl:NamedIndividual ,
+                     :Actress ;
+            :isActressOf :AWalkToRemember ;
+            :DOB "April 10 1984" ;
+            :Gender "Female" ;
+            :Name "Mandy Moore" .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#MaxwellSimba
+:MaxwellSimba rdf:type owl:NamedIndividual ,
+                       :Actor ;
+              :isActorOf :TheBoyWhoHarnessedWind ;
+              :DOB 2012 ;
+              :Gender "Male" ;
+              :Name "Maxwell Simba" .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#MissionImpossible
+:MissionImpossible rdf:type owl:NamedIndividual ,
+                            :Action ;
+                   :hasActor :TomCruise ;
+                   :hasActress :EmmanuelleBert ;
+                   :hasDirector :BrianDePalma ;
+                   :hasLanguage :English ;
+                   :hasProducer :TomCruise ;
+                   :Rating "3.8"^^xsd:float ;
+                   :ReleaseYear "1996"^^xsd:int .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#PaulFeig
+:PaulFeig rdf:type owl:NamedIndividual ,
+                   :Director ;
+          :isDirectorOf :BridesMaid ;
+          :DOB "Sep 17 1962" ;
+          :Gender "Male" ;
+          :Name "PAul Feig" .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#PeteDocter
+:PeteDocter rdf:type owl:NamedIndividual ,
+                     :Director ;
+            :isDirectorOf :Up ;
+            :DOB "Oct 9 1968" ;
+            :Gender "Male" ;
+            :Name "Pete Docter" .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#RichardMadden
+:RichardMadden rdf:type owl:NamedIndividual ,
+                        :Actor ;
+               :isActorOf :Cindrella ;
+               :DOB "June 18 1986" ;
+               :Gender "Male" ;
+               :Name "RichardMadden" .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#RyanGosling
+:RyanGosling rdf:type owl:NamedIndividual ,
+                      :Actor ;
+             :isActorOf :LALaLand ;
+             :DOB "Nov 12 1980" ;
+             :Gender "Male" ;
+             :Name "Ryan Gosling" .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#ShaneWest
+:ShaneWest rdf:type owl:NamedIndividual ,
+                    :Actor ;
+           :isActorOf :AWalkToRemember ;
+           :DOB "Jun 10 1978" ;
+           :Gender "Male" ;
+           :Name "Shane West" .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#Spanish
+:Spanish rdf:type owl:NamedIndividual ,
+                  :SpanishMovies ;
+         :hasLanguage :Spanish .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#TheBoyWhoHarnessedWind
+:TheBoyWhoHarnessedWind rdf:type owl:NamedIndividual ,
+                                 :Social ;
+                        :hasActor :ChiwetelEjiofor ,
+                                  :MaxwellSimba ;
+                        :hasDirector :ChiwetelEjiofor ;
+                        :hasLanguage :Spanish ;
+                        :hasProducer :Andrea_Calderwood ;
+                        :Rating "4.2"^^xsd:float ;
+                        :ReleaseYear "2019"^^xsd:int .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#TomCruise
+:TomCruise rdf:type owl:NamedIndividual ,
+                    :Actor ,
+                    :Producer ;
+           :isActorOf :MissionImpossible ;
+           :isProducerOf :MissionImpossible ;
+           :Gender "July 3 1962" ,
+                   "Male" ;
+           :Name "Tom Cruise" .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#Up
+:Up rdf:type owl:NamedIndividual ,
+             :Animation ;
+    :hasActor :ChristopherPlummer ;
+    :hasDirector :PeteDocter ;
+    :hasLanguage :English ;
+    :hasProducer :Disney ;
+    :Rating "4.4"^^xsd:float ;
+    :ReleaseYear "2009"^^xsd:int .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#VanessaHudgens
+:VanessaHudgens rdf:type owl:NamedIndividual ,
+                         :Actress ;
+                :isActressOf :HighSchoolMusical ;
+                :DOB "Dec 14 1988" ;
+                :Gender "Female" ;
+                :Name "Vanessa Hudgens" .
+
+
+###  http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#ZacEfron
+:ZacEfron rdf:type owl:NamedIndividual ,
+                   :Actor ;
+          :isActorOf :HighSchoolMusical ;
+          :DOB "Oct 18 1987" ;
+          :Gender "Male" ;
+          :Name "Zac Efron" .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :A
+                :S
+                :U
+                <http://www.semanticweb.org/mndho/ontologies/2021/4/MoviesOntology#A/U>
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :FrenchMovies
+                :Hollywood
+                :SpanishMovies
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :ParentalGuidanceRequired
+                :RestrictedToAdults
+                :RestrictedToSpecialClass
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :ParentalGuidanceRequired
+                :RestrictedToAdults
+                :RestrictedToSpecialClass
+                :Unrestricted
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
